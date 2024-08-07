@@ -26,10 +26,10 @@ loadPredictedData <- function(file_path,cancerType){
 loadCombinedDF <- function(){
   return(
     rbind(
-      loadObservedData("./data/colon_marginal_observed.dta","colon"),
-      loadObservedData("./data/melanoma_marginal_observed.dta","melanoma"),
-      loadPredictedData("./data/colon_marginal_predictions.dta","colon"),
-      loadPredictedData("./data/melanoma_marginal_predictions.dta","melanoma")
+      loadObservedData("./RShiny-Survival-Analysis/data/colon_marginal_observed.dta","colon"),
+      loadObservedData("./RShiny-Survival-Analysis/data/melanoma_marginal_observed.dta","melanoma"),
+      loadPredictedData("./RShiny-Survival-Analysis/data/colon_marginal_predictions.dta","colon"),
+      loadPredictedData("./RShiny-Survival-Analysis/data/melanoma_marginal_predictions.dta","melanoma")
     )
   )
 }
