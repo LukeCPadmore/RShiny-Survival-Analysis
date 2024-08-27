@@ -1,35 +1,9 @@
-# Function to filter marginal observed data frames as only KM estimates are needed
-filterObservedData <- function(observedData){
-  return(
-    observedData %>% select(km_all,km_t_all,km_cs,km_t_cs) %>%
-      unique()
-      
-  )
-}
-
-# Extract window size from slider components
-getWindowSizes<-function(input){
-  windows <- list()
-  # Conditionally add 'standard' if present in input$PredictorMethod
-  if ("standard" %in% input$PredictorMethod) {
-    windows$standard <- TRUE
-  } else {
-    windows$standard <- FALSE
-  }
-  
-  # Conditionally add 'tr' if 'tr' is in PredictorMethod and trWindowSlider is not NA
-  if (is.na(input$trWindowSlider)) {
-    windows$tr <- input$trWindowSlider
-  } else {
-    windows$tr <- FALSE # Empty string if condition not met
-  }
-  # Conditionally add 'pa' if 'pa' is in PredictorMethod and paWindowSlider is not NA
-  if (is.na(input$paWindowSlider)) {
-    windows$pa <- input$paWindowSlider
-  } else {
-    windows$pa <- FALSE # Empty string if condition not met
-  }
-  # Return the results list
-  print(windows)
-  return(windows)
+# Function to create regex string to search for selected indicators
+# "standard" has no time window whereas "pa" and "tr" can have a time 
+# Make sure to pass in empty string if standard included!
+formatIndicatorRegex <- function(modelTypes,windowSizes){
+    # Need to add "km" and "aj" so these do not get filtered out
+    return(
+    paste(c("km","aj", mapply(paste0,modelTypes,windowSizes)),collapse = "|")
+    )
 }
