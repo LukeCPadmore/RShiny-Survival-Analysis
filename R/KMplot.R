@@ -39,11 +39,13 @@ plotKMCurve <- function(km_data){
     labs(x = "Time (Years)", y = "Survival Probability [S(t)]",
          colour = "Prediction Method", linetype = "Window Size") +
     theme_minimal() +
-    theme(legend.position = "bottom")) 
+    theme(legend.position = "bottom",
+          legend.box = "vertical"))
 }
 
 plotCal <- function(cal_data,confint){
   cal_data <- cal_data %>% mutate(Window_Size = as.factor(Window_Size))
+  return(
   ggplot(data = cal_data, aes(x = Predicted, y = Observed,colour = Model_Type,group = Model_Type)) +
   geom_smooth(data = cal_data %>% filter(Model_Type == "Standard" & is.na(CR_Type)),
               method = "auto",
@@ -83,5 +85,6 @@ plotCal <- function(cal_data,confint){
     coord_equal() +
     labs(colour = "Prediction Method", linetype = "Window Size") +
     theme_minimal() + 
-    theme(legend.position = "bottom")
+    theme(legend.position = "bottom",
+          legend.box = "vertical"))
 }

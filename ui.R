@@ -4,7 +4,7 @@ library(shinycssloaders)
 
 # Define UI for application that draws a histogram
 navbarPage(
-  theme = bs_theme(bootswatch = "spacelab"),
+  theme = bs_theme(bootswatch = "yeti"),
   title = "Temporal Recalibration Analysis",
   tabPanel("Info",
            page_fluid(
