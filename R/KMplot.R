@@ -83,7 +83,7 @@ plotCal <- function(cal_data,confint){
                     linetype = Window_Size)) +
     geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
     coord_equal() +
-    labs(title = "Calibration Plot", colour = "Prediction Method", linetype = "Window Size") +
+    labs(colour = "Prediction Method", linetype = "Window Size") +
     theme_minimal() + 
     theme(legend.position = "bottom",
           legend.box = "vertical")) 

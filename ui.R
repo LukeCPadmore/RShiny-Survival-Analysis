@@ -20,18 +20,18 @@ navbarPage(
                tags$ul(
                  tags$li(tags$a(href="https://academic.oup.com/ije/article/49/4/1316/5815624#211061527",
                                 "Temporal recalibration for improving prognostic 
-                                model development and risk predictions in settings where survival is improving over time")),
+                                model development and risk predictions in settings where survival is improving over time.")),
                  tags$li(tags$a(href="https://onlinelibrary.wiley.com/doi/10.1002/sim.9898",
                                 "Using temporal recalibration to improve the calibration 
-                                of risk prediction models in competing risk settings when there are trends in survival over time"))
+                                of risk prediction models in competing risk settings when there are trends in survival over time."))
                ),
                h2("Data"),
                p("The data used to create this tool is from a cancer registry from a northern
                  european country and considers Melanoma and Colon cancer. The 
                  data spans patients observed between 1975-1994.
-                 Data from which patients are in the risk set between 1975-84 
-                 was used to fit each model patients in the risk set
-                 between 1985-94 reserved to validate each model."),
+                 Data from which patients are in the risk set and daignosed between 1975-84 
+                 was used to fit each model patients in the risk set and
+                 diagnosed between 1985-94 reserved to validate each model."),
                h2("Predictor Methods"),
                p("To resolve the issues of miscalibrated predictions over time
                  we considered different predictor methods:"),
@@ -88,7 +88,7 @@ navbarPage(
                h2("Calibration Plots"),
                p("While comparison between marginal survival/cumulative incidence curves and their
                  respective ground truth estimators allows a comparison as to how well each model performs on
-                 average, we are unable to see how well each model performs on individuals
+                 average, we are unable to see how well each model performs on individuals.
                  We can use calibration plots where for each patient we plot their predicted
                  probability of surival against their pseudo-value. We then plot a smoother
                  to assess overall calibration of each model. More information about pseudo-values
