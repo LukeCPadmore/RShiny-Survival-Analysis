@@ -36,7 +36,7 @@ plotKMCurve <- function(km_data){
                                colour = Model_Type,
                                linetype = as.factor(Window_Size)
                                )) +
-    labs(x = "Time (Years)", y = "Survival Probability [S(t)]",
+    labs(x = "Time (Years)", y = ifelse("Competing Risks" %in% km$Framework,"Cumulative Incidence Function [CIF(t)]","Survival Probability [S(t)]"),
          colour = "Prediction Method", linetype = "Window Size") +
     theme_minimal() +
     theme(legend.position = "bottom",
@@ -83,8 +83,8 @@ plotCal <- function(cal_data,confint){
                     linetype = Window_Size)) +
     geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "black") +
     coord_equal() +
-    labs(colour = "Prediction Method", linetype = "Window Size") +
+    labs(title = "Calibration Plot", colour = "Prediction Method", linetype = "Window Size") +
     theme_minimal() + 
     theme(legend.position = "bottom",
-          legend.box = "vertical"))
+          legend.box = "vertical")) 
 }
